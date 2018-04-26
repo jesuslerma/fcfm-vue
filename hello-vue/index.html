@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Tool Lateralus</h1>
+    <label>Format Song</label>
+
+    <input 
+      @click="formatSong"
+      type='checkbox'>
+
+    <div v-if="formatedSong" >
+      <p v-for='line in song'>
+        {{ line }}
+      </p>
+    </div>
+    <div v-else>
+      <p > {{ song }}</p>  
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        song: `Black, then, white are, all I see, in my infancy, 
+          red and yellow then came to be, reaching out to me, let's me see`,
+        formatedSong: false
+      },
+      computed: {
+        fiboSong () {
+          return this.song.split(',')
+        }
+      },
+      methods: {
+        formatSong () {
+          if (this.formatedSong) {
+            this.song = this.song.join(',')
+          } else {
+            this.song = this.song.split(',')
+          }
+          this.formatedSong = !this.formatedSong
+        }
+      }
+    })
+  </script>
+</body>
+</html>

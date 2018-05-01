@@ -5,6 +5,7 @@ import App from './App'
 import Router from 'vue-router'
 import SongList from './components/songs/list'
 import Lyrics from './components/songs/lyrics'
+import { store } from './store'
 
 Vue.config.productionTip = false
 Vue.use(Router)
@@ -24,6 +25,7 @@ const router = new Router({
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

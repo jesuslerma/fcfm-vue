@@ -6,17 +6,20 @@
           <th>
             <input 
               placeholder="Search Name"
-              @keyup.enter='searchByName'>
+              @keyup.enter='searchByName'
+              v-model='searchTerms.name'>
           </th>
           <th>
             <input 
               placeholder="Search Artist"
-              @keyup.enter='searchByArtist'>
+              @keyup.enter='searchByArtist'
+              v-model='searchTerms.artist.name'>
           </th>
           <th>
             <input 
               placeholder="Search Album"
-              @keyup.enter='searchByAlbum'></th>
+              @keyup.enter='searchByAlbum'
+              v-model='searchTerms.album.name'></th>
         </tr>
       </thead>
       <tr v-for="song in songs">
@@ -33,7 +36,7 @@
   </div>
 </template>
 <script >
-  import songs from './songs'
+  import songs from '../../store/songs'
   export default {
     name: 'SongList',
     data () {
@@ -45,7 +48,16 @@
         album: {
           name: ''
         },
-        name: ''
+        name: '',
+        searchTerms: {
+          name: '',
+          artist: {
+            name: ''
+          },
+          album: {
+            name: ''
+          }
+        }
       }
     },
     methods: {

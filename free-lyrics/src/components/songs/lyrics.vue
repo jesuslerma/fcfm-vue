@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import songs from './songs'
+import songs from '../../store/songs'
 
 export default {
   name: 'App',

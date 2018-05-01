@@ -6,18 +6,16 @@
       </button>
     <table>
       <thead>
-        <tr>
-          <td>Name</td>
-          <td>Artist</td>
-          <td>Album</td>
-        </tr>
+        <th>Name</th>
+        <th>Artist</th>
+        <th>Album</th>
       </thead>
-    </table>
       <tr v-for="song in songs">
         <td>{{ song.name }}</td>
         <td>{{ song.artist.name }}</td>
         <td>{{ song.album.name }}</td>
       </tr>
+    </table>
     </ul>
   </div>
 </template>
@@ -37,3 +35,17 @@
     }
   }
 </script>
+
+<style >
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>

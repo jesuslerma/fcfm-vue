@@ -6,6 +6,23 @@ const songs = [{
   album: {
     name: 'Re'
   }
+}, {
+  name: 'Monitor',
+  artist: {
+    name: 'Volován'
+  },
+  album: {
+    name: 'Monitor'
+  }
+},
+{
+  name: 'Lateralus',
+  artist: {
+    name: 'Tool'
+  },
+  album: {
+    name: 'Lateralus'
+  }
 }]
 
 export default songs

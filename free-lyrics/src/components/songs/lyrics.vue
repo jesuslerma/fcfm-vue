@@ -1,10 +1,9 @@
 <template>
   <div >
-    <button 
-      @click='fetchSong'>
-        Load Song
-    </button>
-    
+    <router-link
+      :to="{name: 'SongList' }">
+        Return to Songs
+    </router-link>
     <h1>{{ song.name }}</h1>
     <h2>Artist: {{ song.artist.name }}</h2>
     <h3>Album: {{ song.album.name }}</h3>
@@ -38,6 +37,10 @@ export default {
       const id = this.$route.params.songId
       this.song = songs.find(song => song.id === parseInt(id))
     }
+  },
+
+  mounted () {
+    this.fetchSong()
   }
 }
 </script>

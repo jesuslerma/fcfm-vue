@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <button 
-      @click='fetchSongs'>
-        Load Songs
-      </button>
+  <div>    
     <table>
       <thead>
         <tr>
@@ -80,6 +76,9 @@
         this.album.name = event.target.value
         this.search()
       }
+    },
+    mounted () {
+      this.fetchSongs()
     }
   }
 </script>

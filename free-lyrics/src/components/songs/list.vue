@@ -12,8 +12,15 @@
               placeholder="Search Name"
               @keyup.enter='searchByName'>
           </th>
-          <th>Artist</th>
-          <th>Album</th>
+          <th>
+            <input 
+              placeholder="Search Artist"
+              @keyup.enter='searchByArtist'>
+          </th>
+          <th>
+            <input 
+              placeholder="Search Album"
+              @keyup.enter='searchByAlbum'></th>
         </tr>
       </thead>
       <tr v-for="song in songs">
@@ -30,20 +37,43 @@
     name: 'SongList',
     data () {
       return {
-        songs: []
+        songs: [],
+        artist: {
+          name: ''
+        },
+        album: {
+          name: ''
+        },
+        name: ''
       }
     },
     methods: {
       fetchSongs () {
         this.songs = songs
       },
-      searchByName (event) {
-        const name = event.target.value
+      search () {
         const filteredSongs = songs.filter(song => {
-          return song.name.includes(name)
+          const matchName = this.name !== '' ? song.name.includes(this.name) : true
+          const matchArtist = this.artist.name !== '' ? song.artist.name.includes(this.artist.name) : true
+          const matchAlbum = this.album.name !== '' ? song.album.name.includes(this.album.name) : true
+          return matchAlbum && matchArtist && matchName
         })
 
-        this.songs = filteredSongs.length || name !== '' ? filteredSongs : songs
+        const isSearching = this.artist.name !== '' || this.album.name !== '' || this.name !== ''
+
+        this.songs = filteredSongs.length || isSearching ? filteredSongs : songs
+      },
+      searchByName (event) {
+        this.name = event.target.value
+        this.search()
+      },
+      searchByArtist (event) {
+        this.artist.name = event.target.value
+        this.search()
+      },
+      searchByAlbum (event) {
+        this.album.name = event.target.value
+        this.search()
       }
     }
   }

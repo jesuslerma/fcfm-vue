@@ -6,9 +6,15 @@
       </button>
     <table>
       <thead>
-        <th>Name</th>
-        <th>Artist</th>
-        <th>Album</th>
+        <tr>
+          <th>
+            <input 
+              placeholder="Search Name"
+              @keyup.enter='searchByName'>
+          </th>
+          <th>Artist</th>
+          <th>Album</th>
+        </tr>
       </thead>
       <tr v-for="song in songs">
         <td>{{ song.name }}</td>
@@ -16,7 +22,6 @@
         <td>{{ song.album.name }}</td>
       </tr>
     </table>
-    </ul>
   </div>
 </template>
 <script >
@@ -31,6 +36,14 @@
     methods: {
       fetchSongs () {
         this.songs = songs
+      },
+      searchByName (event) {
+        const name = event.target.value
+        const filteredSongs = songs.filter(song => {
+          return song.name.includes(name)
+        })
+
+        this.songs = filteredSongs.length || name !== '' ? filteredSongs : songs
       }
     }
   }

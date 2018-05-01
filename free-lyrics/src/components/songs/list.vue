@@ -4,16 +4,32 @@
       @click='fetchSongs'>
         Load Songs
       </button>
-    <ul>
-      <li v-for="song in songs">
-        {{ song.name }}
-      </li>
+    <table>
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Artist</td>
+          <td>Album</td>
+        </tr>
+      </thead>
+    </table>
+      <tr v-for="song in songs">
+        <td>{{ song.name }}</td>
+        <td>{{ song.artist.name }}</td>
+        <td>{{ song.album.name }}</td>
+      </tr>
     </ul>
   </div>
 </template>
 <script >
   const songs = [{
-    name: 'Café Tacva'
+    name: 'Ingrata',
+    artist: {
+      name: 'Café Tacva'
+    },
+    album: {
+      name: 'Re'
+    }
   }]
 
   export default {

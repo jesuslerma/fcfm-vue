@@ -1,4 +1,5 @@
 const songs = [{
+  id: 1,
   name: 'Ingrata',
   artist: {
     name: 'Café Tacva'
@@ -7,6 +8,7 @@ const songs = [{
     name: 'Re'
   }
 }, {
+  id: 2,
   name: 'Monitor',
   artist: {
     name: 'Volován'
@@ -16,6 +18,7 @@ const songs = [{
   }
 },
 {
+  id: 3,
   name: 'Lateralus',
   artist: {
     name: 'Tool'

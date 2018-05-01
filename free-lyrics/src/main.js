@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
 import SongList from './components/songs/list'
+import Lyrics from './components/songs/lyrics'
 
 Vue.config.productionTip = false
 Vue.use(Router)
@@ -13,6 +14,10 @@ const router = new Router({
     path: '/',
     name: 'SongList',
     component: SongList
+  }, {
+    path: '/:songId',
+    name: 'Lyrics',
+    component: Lyrics
   }]
 })
 /* eslint-disable no-new */

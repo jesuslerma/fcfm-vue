@@ -24,7 +24,12 @@
         </tr>
       </thead>
       <tr v-for="song in songs">
-        <td>{{ song.name }}</td>
+        <td>
+          <router-link
+            :to="{name: 'Lyrics', params: {songId: song.id}}">
+            {{ song.name }}
+          </router-link>
+        </td>
         <td>{{ song.artist.name }}</td>
         <td>{{ song.album.name }}</td>
       </tr>

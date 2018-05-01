@@ -22,16 +22,7 @@
   </div>
 </template>
 <script >
-  const songs = [{
-    name: 'Ingrata',
-    artist: {
-      name: 'Café Tacva'
-    },
-    album: {
-      name: 'Re'
-    }
-  }]
-
+  import songs from './songs'
   export default {
     name: 'SongList',
     data () {

@@ -7,8 +7,8 @@
     <h1>{{ song.name }}</h1>
     <h2>Artist: {{ song.artist.name }}</h2>
     <h3>Album: {{ song.album.name }}</h3>
-    <p>
-      {{ song.lyrics }}
+    <p v-for="strophe in song.lyrics.split(',')">
+      {{  strophe }}
     </p>
   </div>
 </template>

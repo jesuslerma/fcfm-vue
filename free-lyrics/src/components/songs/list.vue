@@ -1,5 +1,8 @@
 <template>
-  <div>    
+  <div>
+    <h1>
+      {{ fullSearchTerms }}
+    </h1> 
     <table>
       <thead>
         <tr>
@@ -48,18 +51,25 @@
         album: {
           name: ''
         },
-        name: '',
-        searchTerms: {
-          name: '',
-          artist: {
-            name: ''
-          },
-          album: {
-            name: ''
-          }
-        }
+        name: ''
       }
     },
+    computed: {
+      fullSearchTerms () {
+        const terms = [
+          this.searchTerms.name,
+          this.searchTerms.artist.name,
+          this.searchTerms.album.name
+        ].join(',')
+
+        return `Searching ${terms}`
+      },
+
+      searchTerms () {
+        return this.$store.state.searchTerms
+      }
+    },
+
     methods: {
       fetchSongs () {
         this.songs = songs

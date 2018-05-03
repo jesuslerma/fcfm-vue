@@ -17,10 +17,11 @@
 import songs from '../../store/songs'
 
 export default {
-  name: 'App',
+  name: 'Lyrics',
   data () {
     return {
       song: {
+        lyrics: '',
         id: 0,
         name: '',
         artist: {

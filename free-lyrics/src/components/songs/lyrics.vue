@@ -15,23 +15,12 @@
 
 <script>
 import songs from '../../store/songs'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Lyrics',
-  data () {
-    return {
-      song: {
-        lyrics: '',
-        id: 0,
-        name: '',
-        artist: {
-          name: ''
-        },
-        album: {
-          name: ''
-        }
-      }
-    }
+  computed: {
+    ...mapGetters(['song'])
   },
   methods: {
     fetchSong () {

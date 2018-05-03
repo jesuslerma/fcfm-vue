@@ -13,6 +13,17 @@ export const store = new Vuex.Store({
       album: {
         name: ''
       }
+    },
+    song: {
+      id: '',
+      name: '',
+      artist: {
+        name: ''
+      },
+      album: {
+        name: ''
+      },
+      lyrics: ''
     }
   },
   mutations: {

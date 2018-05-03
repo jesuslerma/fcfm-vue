@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import songs from './songs'
 
 Vue.use(Vuex)
 
@@ -24,7 +25,8 @@ export const store = new Vuex.Store({
         name: ''
       },
       lyrics: ''
-    }
+    },
+    songs
   },
   mutations: {
     searchByName (state, name) {
@@ -35,6 +37,20 @@ export const store = new Vuex.Store({
     },
     searchByAlbum (state, name) {
       state.searchTerms.artist.name = name
+    },
+    fetchSong (state, id) {
+      state.song = state.songs.find(song => song.id === parseInt(id))
+    }
+  },
+  getters: {
+    song (state, id) {
+      return state.song
+    }
+  },
+  actions: {
+    fetchSong ({commit}, id) {
+      console.log(id)
+      commit('fetchSong', id)
     }
   }
 })

@@ -26,7 +26,11 @@ const songs = [{
   },
   album: {
     name: 'Monitor'
-  }
+  },
+  lyrics: `
+    Y la distancia le ganó al amor,
+    Solo te veo en el monitor
+  `
 },
 {
   id: 3,
@@ -36,7 +40,12 @@ const songs = [{
   },
   album: {
     name: 'Lateralus'
-  }
+  },
+  lyrics: `
+    Black, 
+    White,
+    They are
+  `
 }]
 
 export default songs

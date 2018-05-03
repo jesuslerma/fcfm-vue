@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import songs from '../../store/songs'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Lyrics',
@@ -23,14 +22,11 @@ export default {
     ...mapGetters(['song'])
   },
   methods: {
-    fetchSong () {
-      const id = this.$route.params.songId
-      this.song = songs.find(song => song.id === parseInt(id))
-    }
+    ...mapActions(['fetchSong'])
   },
-
   mounted () {
-    this.fetchSong()
+    const id = this.$route.params.songId
+    this.fetchSong(id)
   }
 }
 </script>
